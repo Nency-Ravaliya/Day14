@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Nency-Ravaliya/Day13.git', branch: 'main', credentialsId: 'gtk0'
+                git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: 'main', credentialsId: 'gtk0'
             }
         }
 
@@ -28,9 +28,51 @@ pipeline {
             }
         }
 
+        stage('Unit Tests') {
+            steps {
+                script {
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn test'
+                    }
+                }
+            }
+        }
+
+        stage('Integration Tests') {
+            steps {
+                script {
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn verify'
+                    }
+                }
+            }
+        }
+
+        stage('Static Analysis') {
+            steps {
+                script {
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn pmd:pmd'
+                    }
+                }
+            }
+        }
+
         stage('Archive Artifacts') {
             steps {
                 archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    echo "Deploying application from branch: ${env.BRANCH_NAME}"
+                    sh './deploy-prod.sh'
+                }
             }
         }
     }
@@ -47,4 +89,3 @@ pipeline {
         }
     }
 }
-
