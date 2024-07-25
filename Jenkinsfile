@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     echo "Checking out branch: ${env.BRANCH_NAME}"
-                    git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: env.BRANCH_NAME
+                    git url: 'https://github.com/your-repo/your-project.git', branch: env.BRANCH_NAME
                 }
             }
         }
@@ -69,7 +69,7 @@ pipeline {
 
     post {
         always {
-            node {
+            node('any') { // Specify 'any' or your specific label here
                 archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
                 junit '**/target/test-classes/*.xml'
             }
