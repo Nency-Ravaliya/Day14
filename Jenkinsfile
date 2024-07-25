@@ -1,42 +1,76 @@
 pipeline {
     agent any
-
-    tools {
-        jdk 'JDK 17' // Make sure this name matches what you configured
-        maven 'Maven-3.9.2' // Ensure this matches the name configured for Maven
-    }
-
+    
     environment {
-        MAVEN_HOME = tool name: 'Maven-3.9.2', type: 'maven'
-        JAVA_HOME = tool name: 'JDK 17', type: 'jdk'
+        MAVEN_HOME = tool name: 'Maven-3.9.0'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Nency-Ravaliya/Day13.git', branch: 'main', credentialsId: 'gtk0'
+                script {
+                    echo "Checking out branch: ${env.BRANCH_NAME}"
+                    git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: env.BRANCH_NAME
+                }
             }
         }
 
         stage('Build') {
             steps {
                 script {
-                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
-                        sh 'mvn clean package'
+                    echo "Building branch: ${env.BRANCH_NAME}"
+                    withMaven(maven: 'Maven-3.9.0') {
+                        sh "'${MAVEN_HOME}/bin/mvn' clean package"
                     }
                 }
             }
         }
 
-        stage('Archive Artifacts') {
+        stage('Integration Test') {
             steps {
-                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+                script {
+                    echo "Running integration tests on branch: ${env.BRANCH_NAME}"
+                    withMaven(maven: 'Maven-3.9.0') {
+                        sh "'${MAVEN_HOME}/bin/mvn' verify"
+                    }
+                }
+            }
+        }
+
+        stage('Static Analysis') {
+            steps {
+                script {
+                    echo "Performing static analysis on branch: ${env.BRANCH_NAME}"
+                    sh "'${MAVEN_HOME}/bin/mvn' pmd:pmd"
+                }
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'staging'
+                }
+            }
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'main') {
+                        echo "Deploying to production from branch: ${env.BRANCH_NAME}"
+                        sh './deploy-prod.sh'
+                    } else if (env.BRANCH_NAME == 'staging') {
+                        echo "Deploying to staging from branch: ${env.BRANCH_NAME}"
+                        sh './deploy-staging.sh'
+                    }
+                }
             }
         }
     }
 
     post {
         always {
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            junit '**/target/test-classes/*.xml'
             echo 'Pipeline finished.'
         }
         success {
@@ -47,4 +81,3 @@ pipeline {
         }
     }
 }
-
