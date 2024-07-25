@@ -2,7 +2,7 @@ pipeline {
     agent any  // Runs on the master node or any available agent
 
     environment {
-        MAVEN_HOME = tool name: 'Maven-3.9.0'  // Ensure this tool is configured in Jenkins
+        MAVEN_HOME = tool name: 'Maven-3.9.2'  // Ensure this tool is configured in Jenkins
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Building branch: ${env.BRANCH_NAME}"
-                    withMaven(maven: 'Maven-3.9.0') {
+                    withMaven(maven: 'Maven-3.9.2') {
                         sh "'${MAVEN_HOME}/bin/mvn' clean package"
                     }
                 }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     echo "Running integration tests on branch: ${env.BRANCH_NAME}"
-                    withMaven(maven: 'Maven-3.9.0') {
+                    withMaven(maven: 'Maven-3.9.2') {
                         sh "'${MAVEN_HOME}/bin/mvn' verify"
                     }
                 }
