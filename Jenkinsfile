@@ -1,8 +1,8 @@
 pipeline {
-    agent any
-    
+    agent any  // Runs on the master node or any available agent
+
     environment {
-        MAVEN_HOME = tool name: 'Maven-3.9.0'
+        MAVEN_HOME = tool name: 'Maven-3.9.0'  // Ensure this tool is configured in Jenkins
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     echo "Checking out branch: ${env.BRANCH_NAME}"
-                    git url: 'https://github.com/your-repo/your-project.git', branch: env.BRANCH_NAME
+                    git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: env.BRANCH_NAME
                 }
             }
         }
@@ -69,10 +69,9 @@ pipeline {
 
     post {
         always {
-            node('any') { // Specify 'any' or your specific label here
-                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
-                junit '**/target/test-classes/*.xml'
-            }
+            // Archive artifacts and publish test results
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            junit '**/target/test-classes/*.xml'
             echo 'Pipeline finished.'
         }
         success {
