@@ -69,8 +69,10 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
-            junit '**/target/test-classes/*.xml'
+            node {
+                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+                junit '**/target/test-classes/*.xml'
+            }
             echo 'Pipeline finished.'
         }
         success {
