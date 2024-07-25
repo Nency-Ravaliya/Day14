@@ -1,0 +1,247 @@
+Script started on 2024-07-25 16:39:44+05:30 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="202" LINES="55"]
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ nano deploy-prod.sh
+[?2004l[?2004h[?1049h[22;0;0t[1;55r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[53;96H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 6.2                                                                                  deploy-prod.sh                                                                                            [1;201H(B[m[54d(B[0;7m^G(B[m Help[54;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[54;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[54;113H(B[0;7mM-A(B[m Set Mark    (B[0;7mM-](B[m To Bracket  (B[0;7mM-Q(B[m Previous    (B[0;7m^B(B[m Back[54;177H(B[0;7m^◂(B[m Prev Word[55d(B[0;7m^X(B[m Exit[55;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[55;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[55;113H(B[0;7mM-6(B[m Copy[55;129H(B[0;7m^Q(B[m Where Was    (B[0;7mM-W(B[m Next[55;161H(B[0;7m^F(B[m Forward[177G(B[0;7m^▸(B[m Next Word[2d[?12l[?25h[?25l[1;112H(B[0;7m*[201G(B[m[2ddeploy-prod.sh[53d[K[2;15H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[53d[?12l[?25h[2;11H [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[36m#!/bin/bash[3d(B[0;1m[34mecho[39m(B[m (B[0;1m[33m"Deploying to production environment..."[4d(B[0m[36m# Add deployment commands here[5d[39m(B[m[?12l[?25h[?25l[53;95H(B[0;7m[ Writing... ](B[m[1;112H(B[0;7m [201G(B[m[53;93H(B[0;7m[ Wrote 4 lines ](B[m[?12l[?25h[5d[?25l[53d[J[55d[?12l[?25h[55;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add [K[K[K[Kbranch
+[?2004l[?1h=  development[m[m
+  main[m[m
+* [32mproduction[m[m
+  staging[m[m
+[K[?1l>[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git commit -m "deploy.[K-prod.sh add"
+[?2004l[production 5e63e4a] deploy-prod.sh add
+ 1 file changed, 4 insertions(+)
+ create mode 100644 deploy-prod.sh
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git push origin production
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+Enumerating objects: 4, done.
+Counting objects:  25% (1/4)Counting objects:  50% (2/4)Counting objects:  75% (3/4)Counting objects: 100% (4/4)Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 363 bytes | 363.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/Nency-Ravaliya/Day14.git
+   3db528a..5e63e4a  production -> production
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ chmod +x deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ chmod +x deploy-prod.sh git push origin productioncommit -m "deploy-prod.sh add"[11Padd deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add deploy-prod.sh [1@chmod +x[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push origin productioncommit -m "deploy-prod.sh add"
+[?2004l[production cf8c4af] deploy-prod.sh add
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ mode change 100644 => 100755 deploy-prod.sh
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git commit -m "deploy-prod.sh add"[11Padd deploy-prod.sh [1@chmod +x[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push origin production
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+Enumerating objects: 3, done.
+Counting objects:  33% (1/3)Counting objects:  66% (2/3)Counting objects: 100% (3/3)Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects:  50% (1/2)Compressing objects: 100% (2/2)Compressing objects: 100% (2/2), done.
+Writing objects:  50% (1/2)Writing objects: 100% (2/2)Writing objects: 100% (2/2), 240 bytes | 240.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/Nency-Ravaliya/Day14.git
+   5e63e4a..cf8c4af  production -> production
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git checkp[Kout main
+[?2004lSwitched to branch 'main'
+Your branch is up to date with 'origin/main'.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ nano deploy-prod.sh
+[?2004l[?2004h[?1049h[22;0;0t[1;55r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[53;96H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 6.2                                                                                  deploy-prod.sh                                                                                            [1;201H(B[m[54d(B[0;7m^G(B[m Help[54;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[54;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[54;113H(B[0;7mM-A(B[m Set Mark    (B[0;7mM-](B[m To Bracket  (B[0;7mM-Q(B[m Previous    (B[0;7m^B(B[m Back[54;177H(B[0;7m^◂(B[m Prev Word[55d(B[0;7m^X(B[m Exit[55;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[55;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[55;113H(B[0;7mM-6(B[m Copy[55;129H(B[0;7m^Q(B[m Where Was    (B[0;7mM-W(B[m Next[55;161H(B[0;7m^F(B[m Forward[177G(B[0;7m^▸(B[m Next Word[2d[?12l[?25h[?25l[1;112H(B[0;7m*[53d(B[m[K[1;201H[2d[36m#!/bin/bash[3d(B[0;1m[34mecho[39m(B[m (B[0;1m[33m"Deploying to production environment..."[4d(B[0m[36m# Add deployment commands here[5d[39m(B[m[?12l[?25h[?25l[53;95H(B[0;7m[ Writing... ](B[m[1;112H(B[0;7m [201G(B[m[53;93H(B[0;7m[ Wrote 3 lines ](B[m[?12l[?25h[5d[?25l[53d[J[55d[?12l[?25h[55;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ chmod +x deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ chmod +x deploy-prod.sh [5Pnano deploy-prod.sh[2Pgit checkout mainpush origin productioncommit -m "deploy-prod.sh add"[11Padd deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add deploy-prod.sh [1@chmod +x[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pnano deploy-prod.sh[2Pgit checkout mainpush origin productioncommit -m "deploy-prod.sh add"
+[?2004l[main f8dd523] deploy-prod.sh add
+ 1 file changed, 3 insertions(+)
+ create mode 100755 deploy-prod.sh
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git commit -m "deploy-prod.sh add"[11Padd deploy-prod.sh [1@chmod +x[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pnano deploy-prod.sh[2Pgit checkout mainpush origin production[K[K[K[K[K[K[K[K[K[Kmain
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+To https://github.com/Nency-Ravaliya/Day14.git
+ [31m! [rejected]       [m main -> main (fetch first)
+[31merror: failed to push some refs to 'https://github.com/Nency-Ravaliya/Day14.git'
+[m[33mhint: Updates were rejected because the remote contains work that you do[m
+[33mhint: not have locally. This is usually caused by another repository pushing[m
+[33mhint: to the same ref. You may want to first integrate the remote changes[m
+[33mhint: (e.g., 'git pull ...') before pushing again.[m
+[33mhint: See the 'Note about fast-forwards' in 'git push --help' for details.[m
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git branch
+[?2004l[?1h=  development[m[m
+* [32mmain[m[m
+  production[m[m
+  staging[m[m
+[K[?1l>[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git status
+[?2004lOn branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git statusbranchpush origin maincommit -m "deploy-prod.sh add"[11Padd deploy-prod.sh [1@chmod +x[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pgit add[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add deploy-prod.sh[12Pstatus[K[K[K[K[Kbranchpush origin maincommit -m "deploy-prod.sh add"[11Padd deploy-prod.sh commit -m "deploy-prod.sh add"
+[?2004lOn branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git commit -m "deploy-prod.sh add"[12Padd deploy-prod.sh[K[K[K[K[K[K[K[K[K[K[K[K[K[K.[K[K[K[K[Kpull origin main
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+remote: Enumerating objects: 23, done.[K
+remote: Counting objects:   4% (1/23)[Kremote: Counting objects:   8% (2/23)[Kremote: Counting objects:  13% (3/23)[Kremote: Counting objects:  17% (4/23)[Kremote: Counting objects:  21% (5/23)[Kremote: Counting objects:  26% (6/23)[Kremote: Counting objects:  30% (7/23)[Kremote: Counting objects:  34% (8/23)[Kremote: Counting objects:  39% (9/23)[Kremote: Counting objects:  43% (10/23)[Kremote: Counting objects:  47% (11/23)[Kremote: Counting objects:  52% (12/23)[Kremote: Counting objects:  56% (13/23)[Kremote: Counting objects:  60% (14/23)[Kremote: Counting objects:  65% (15/23)[Kremote: Counting objects:  69% (16/23)[Kremote: Counting objects:  73% (17/23)[Kremote: Counting objects:  78% (18/23)[Kremote: Counting objects:  82% (19/23)[Kremote: Counting objects:  86% (20/23)[Kremote: Counting objects:  91% (21/23)[Kremote: Counting objects:  95% (22/23)[Kremote: Counting objects: 100% (23/23)[Kremote: Counting objects: 100% (23/23), done.[K
+remote: Compressing objects:   4% (1/21)[Kremote: Compressing objects:   9% (2/21)[Kremote: Compressing objects:  14% (3/21)[Kremote: Compressing objects:  19% (4/21)[Kremote: Compressing objects:  23% (5/21)[Kremote: Compressing objects:  28% (6/21)[Kremote: Compressing objects:  33% (7/21)[Kremote: Compressing objects:  38% (8/21)[Kremote: Compressing objects:  42% (9/21)[Kremote: Compressing objects:  47% (10/21)[Kremote: Compressing objects:  52% (11/21)[Kremote: Compressing objects:  57% (12/21)[Kremote: Compressing objects:  61% (13/21)[Kremote: Compressing objects:  66% (14/21)[Kremote: Compressing objects:  71% (15/21)[Kremote: Compressing objects:  76% (16/21)[Kremote: Compressing objects:  80% (17/21)[Kremote: Compressing objects:  85% (18/21)[Kremote: Compressing objects:  90% (19/21)[Kremote: Compressing objects:  95% (20/21)[Kremote: Compressing objects: 100% (21/21)[Kremote: Compressing objects: 100% (21/21), done.[K
+remote: Total 21 (delta 13), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:   4% (1/21)Unpacking objects:   9% (2/21)Unpacking objects:  14% (3/21)Unpacking objects:  19% (4/21)Unpacking objects:  23% (5/21)Unpacking objects:  28% (6/21)Unpacking objects:  33% (7/21)Unpacking objects:  38% (8/21)Unpacking objects:  42% (9/21)Unpacking objects:  47% (10/21)Unpacking objects:  52% (11/21)Unpacking objects:  57% (12/21)Unpacking objects:  61% (13/21)Unpacking objects:  66% (14/21)Unpacking objects:  71% (15/21)Unpacking objects:  76% (16/21)Unpacking objects:  80% (17/21)Unpacking objects:  85% (18/21)Unpacking objects:  90% (19/21)Unpacking objects:  95% (20/21)Unpacking objects: 100% (21/21)Unpacking objects: 100% (21/21), 7.51 KiB | 1.07 MiB/s, done.
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            main       -> FETCH_HEAD
+   3990db1..64c91c8  main       -> origin/main
+[33mhint: You have divergent branches and need to specify how to reconcile them.[m
+[33mhint: You can do so by running one of the following commands sometime before[m
+[33mhint: your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+fatal: Need to specify how to reconcile divergent branches.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git pull origin main[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+[?2004l'Day 13.docx'   [0m[01;32mdeploy-prod.sh[0m   Jenkinsfile   Jenkinsfile.txt   pom.xml   README.md   [01;34msrc[0m   typescript
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git add deploy-prod.sh 
+[?2004l[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git commit "[K[K - "deploy.sh"m "deploy.sh"
+[?2004lOn branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 7 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git [K[K[K[Kgit commit -m "deploy.sh"[2Padd deploy-prod.sh ls[Kgit pull origin main[K[K[K[Kproduction
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            production -> FETCH_HEAD
+[33mhint: You have divergent branches and need to specify how to reconcile them.[m
+[33mhint: You can do so by running one of the following commands sometime before[m
+[33mhint: your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+fatal: Need to specify how to reconcile divergent branches.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git status
+[?2004lOn branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 7 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git statuspull origin production[1Pcommit -m "deploy.sh"pull origin production[K[K[K[K[K[K[K[K[K[Kdevelopemtn[K[K[K[Kment
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            development -> FETCH_HEAD
+[33mhint: You have divergent branches and need to specify how to reconcile them.[m
+[33mhint: You can do so by running one of the following commands sometime before[m
+[33mhint: your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+fatal: Need to specify how to reconcile divergent branches.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git pull origin development[K[K[K[K[K[K[K[K[K[K[Kstaging
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/Nency-Ravaliya/Day14.git/'
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git pull origin staging
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            staging    -> FETCH_HEAD
+[33mhint: You have divergent branches and need to specify how to reconcile them.[m
+[33mhint: You can do so by running one of the following commands sometime before[m
+[33mhint: your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+fatal: Need to specify how to reconcile divergent branches.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git status
+[?2004lOn branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 7 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git pull \[K[K[K[K[K[K[K[K[K[Kgit statuspull origin staging[K[K[K[K[K[K[Kmain
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            main       -> FETCH_HEAD
+[33mhint: You have divergent branches and need to specify how to reconcile them.[m
+[33mhint: You can do so by running one of the following commands sometime before[m
+[33mhint: your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+fatal: Need to specify how to reconcile divergent branches.
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ [7mgit pull origin main --no-rebase[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit pull origin main --no-rebase
+[A
+[?2004lUsername for 'https://github.com': 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
+Password for 'https://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@github.com': 
+From https://github.com/Nency-Ravaliya/Day14
+ * branch            main       -> FETCH_HEAD
+hint: Waiting for your editor to close the file... [?2004h[?1049h[22;0;0t[1;55r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[53;95H(B[0;7m[ Reading... ](B[m[53;94H(B[0;7m[ Read 6 lines ](B[m[H(B[0;7m  GNU nano 6.2                                                       /home/einfochips/Downloads/DevOps-Training/Task/Day14/.git/MERGE_MSG                                                                 [1;201H(B[m[54d(B[0;7m^G(B[m Help[54;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[54;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[54;113H(B[0;7mM-A(B[m Set Mark    (B[0;7mM-](B[m To Bracket  (B[0;7mM-Q(B[m Previous    (B[0;7m^B(B[m Back[54;177H(B[0;7m^◂(B[m Prev Word[55d(B[0;7m^X(B[m Exit[55;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[55;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[55;113H(B[0;7mM-6(B[m Copy[55;129H(B[0;7m^Q(B[m Where Was    (B[0;7mM-W(B[m Next[55;161H(B[0;7m^F(B[m Forward[177G(B[0;7m^▸(B[m Next Word[2dMerge branch 'main' of [94mhttps://github.com/Nency-Ravaliya/Day14[3d[36m# Please enter a commit message to explain why this merge is necessary,[4d# especially if it merges an updated upstream into a topic branch.[5d#[6d# Lines starting with '#' will be ignored, and an empty message aborts[7d# the commit.[2d[39m(B[m[?12l[?25h[?25l[53;94H (B[0;7m[ Writing... ](B[m[K[1;201H[53;93H(B[0;7m[ Wrote 6 lines ](B[m[?12l[?25h[2d[?25l[53d[J[55d[?12l[?25h[55;1H[?1049l[23;0;0t[?1l>[?2004l[KMerge made by the 'ort' strategy.
+ Jenkinsfile | 45 [32m+++++++++++++++++++++++++++++++++++++++++++[m[31m--[m
+ 1 file changed, 43 insertions(+), 2 deletions(-)
+[?2004h]0;einfochips@AHMLPT1719: ~/Downloads/DevOps-Training/Task/Day14[01;32meinfochips@AHMLPT1719[00m:[01;34m~/Downloads/DevOps-Training/Task/Day14[00m$ git status
+[?2004lOn branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mtypescript[m
+
+nothing ad
