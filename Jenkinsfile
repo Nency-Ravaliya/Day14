@@ -1,37 +1,48 @@
 pipeline {
-    agent any  // Runs on the master node or any available agent
+    agent any
+
+    tools {
+        jdk 'JDK 17' // Make sure this name matches what you configured
+        maven 'Maven-3.9.2' // Ensure this matches the name configured for Maven
+    }
 
     environment {
-        MAVEN_HOME = tool name: 'Maven-3.9.2'  // Ensure this tool is configured in Jenkins
+        MAVEN_HOME = tool name: 'Maven-3.9.2', type: 'maven'
+        JAVA_HOME = tool name: 'JDK 17', type: 'jdk'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    echo "Checking out branch: ${env.BRANCH_NAME}"
-                    git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: env.BRANCH_NAME
-                }
+                git url: 'https://github.com/Nency-Ravaliya/Day14.git', branch: 'main', credentialsId: 'gtk0'
             }
         }
 
         stage('Build') {
             steps {
                 script {
-                    echo "Building branch: ${env.BRANCH_NAME}"
-                    withMaven(maven: 'Maven-3.9.2') {
-                        sh "'${MAVEN_HOME}/bin/mvn' clean package"
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn clean package'
                     }
                 }
             }
         }
 
-        stage('Integration Test') {
+        stage('Unit Tests') {
             steps {
                 script {
-                    echo "Running integration tests on branch: ${env.BRANCH_NAME}"
-                    withMaven(maven: 'Maven-3.9.2') {
-                        sh "'${MAVEN_HOME}/bin/mvn' verify"
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn test'
+                    }
+                }
+            }
+        }
+
+        stage('Integration Tests') {
+            steps {
+                script {
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn verify'
                     }
                 }
             }
@@ -40,28 +51,27 @@ pipeline {
         stage('Static Analysis') {
             steps {
                 script {
-                    echo "Performing static analysis on branch: ${env.BRANCH_NAME}"
-                    sh "'${MAVEN_HOME}/bin/mvn' pmd:pmd"
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin", "PATH+JAVA=${JAVA_HOME}/bin"]) {
+                        sh 'mvn pmd:pmd'
+                    }
                 }
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
             }
         }
 
         stage('Deploy') {
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'staging'
-                }
+                branch 'main'
             }
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'main') {
-                        echo "Deploying to production from branch: ${env.BRANCH_NAME}"
-                        sh './deploy-prod.sh'
-                    } else if (env.BRANCH_NAME == 'staging') {
-                        echo "Deploying to staging from branch: ${env.BRANCH_NAME}"
-                        sh './deploy-staging.sh'
-                    }
+                    echo "Deploying application from branch: ${env.BRANCH_NAME}"
+                    sh './deploy-prod.sh'
                 }
             }
         }
