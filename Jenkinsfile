@@ -69,9 +69,6 @@ pipeline {
 
     post {
         always {
-            // Archive artifacts and publish test results
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
-            junit '**/target/test-classes/*.xml'
             echo 'Pipeline finished.'
         }
         success {
